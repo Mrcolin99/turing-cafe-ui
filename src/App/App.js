@@ -81,7 +81,7 @@ class App extends Component {
             <label for='date'>Date:</label>
             <input type='text' id='date' value={this.state.date} onChange={this.updateDate}></input><br></br>
             <label for='time'>Time:</label>
-            <input type='text' id='Time' value={this.state.time} onChange={this.updateTime}></input><br></br>
+            <input type='text' id='time' value={this.state.time} onChange={this.updateTime}></input><br></br>
             <button onClick={this.addRes}>Make Reservation</button>
           </form>
         </div>
