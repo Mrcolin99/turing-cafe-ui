@@ -6,6 +6,7 @@ class App extends Component {
     super()
     this.state = {
       reserve: [],
+      new: [],
       name: '',
       time: '',
       date: ''
@@ -13,6 +14,7 @@ class App extends Component {
     this.updateName = this.updateName.bind(this)
     this.updateDate = this.updateDate.bind(this)
     this.updateTime = this.updateTime.bind(this)
+    this.addRes = this.addRes.bind(this)
   }
 
   componentDidMount() {
@@ -27,6 +29,17 @@ class App extends Component {
   listResy() {
     console.log(this.state.reserve)
     return this.state.reserve.map((res) => {
+      return (
+        <div>
+          <p className='res'>{res.name} {res.date} {res.time}</p>
+        </div>
+      )
+    })
+  }
+
+  listNewResy() {
+    console.log(this.state.new)
+    return this.state.new.map((res) => {
       return (
         <div>
           <p className='res'>{res.name} {res.date} {res.time}</p>
@@ -50,8 +63,11 @@ class App extends Component {
     console.log(this.state.time)
   }
 
-  addRes() {
+  addRes(event) {
+    event.preventDefault()
     console.log('click!')
+    const newRes = [{name: this.state.name, date: this.state.date, time: this.state.time}]
+    this.setState({reserve: [...this.state.reserve, ...newRes]})
   }
 
   render() {
@@ -70,6 +86,7 @@ class App extends Component {
           </form>
         </div>
         <div className='resy-container'>
+          {this.listNewResy()}
           {this.listResy()}
 
         </div>
