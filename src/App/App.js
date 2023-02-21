@@ -6,7 +6,6 @@ class App extends Component {
     super()
     this.state = {
       reserve: [],
-      new: [],
       name: '',
       time: '',
       date: ''
@@ -42,10 +41,16 @@ class App extends Component {
     return this.state.new.map((res) => {
       return (
         <div>
-          <p className='res'>{res.name} {res.date} {res.time}</p>
+          <p className='res'>
+            {res.name} {res.date} {res.time}
+            </p>
         </div>
       )
     })
+  }
+
+  deleteRes() {
+    console.log('click!')
   }
 
   updateName(event) {
@@ -96,7 +101,6 @@ class App extends Component {
           </form>
         </div>
         <div className='resy-container'>
-          {this.listNewResy()}
           {this.listResy()}
 
         </div>
