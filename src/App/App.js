@@ -67,6 +67,16 @@ class App extends Component {
     event.preventDefault()
     console.log('click!')
     const newRes = [{name: this.state.name, date: this.state.date, time: this.state.time}]
+
+    fetch(`http://localhost:3001/api/v1/reservations`, 
+    {method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({name: this.state.name, 
+        date: this.state.date, 
+        time: this.state.time, 
+        number: Date.now()})
+    })
+
     this.setState({reserve: [...this.state.reserve, ...newRes]})
   }
 
